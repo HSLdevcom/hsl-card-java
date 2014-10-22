@@ -1,0 +1,25 @@
+<resources>
+
+    <string name="z0">Ei määritelty</string>
+	<string name="z1">Helsinki</string>
+	<string name="z2">Espoo</string>
+	<string name="z4">Vantaa</string>
+	<string name="z5">Seutu</string>
+	<string name="z6">Kirkkonummi</string>
+	<string name="z7">Vihti</string>
+	<string name="z8">Nurmijärvi</string>
+	<string name="z9">Kerava-Sipoo</string>
+	<string name="z10">Sipoo</string>
+	<string name="z14">Lähialue</string>
+	<string name="z15">Koko alue</string>
+
+	<string name="v0">Ei määritelty</string>
+	<string name="v1">Bussi</string>
+	<string name="v5">Raitiovaunu</string>
+	<string name="v6">Metro</string>
+	<string name="v7">Juna</string>		
+	<string name="v8">Lautta</string>
+	<string name="v9">U-linja</string>
+  
+    
+</resources>

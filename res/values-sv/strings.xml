@@ -1,0 +1,24 @@
+<resources>
+
+   	<string name="z0">Inte definierat</string>
+	<string name="z1">Helsingfors</string>
+	<string name="z2">Esbo</string>
+	<string name="z4">Vanda</string>
+	<string name="z5">Region</string>
+	<string name="z6">Kyrkslätt</string>
+	<string name="z7">Vichtis</string>
+	<string name="z8">Nurmijärvi</string>
+	<string name="z9">Kervo-Sibbo</string>
+	<string name="z10">Sibbo</string>
+	<string name="z14">Närområdet</string>
+	<string name="z15">Hela området</string>
+
+	<string name="v0">Inte definierat</string>
+	<string name="v1">Buss</string>
+	<string name="v5">Spårvagn</string>
+	<string name="v6">Metro</string>
+	<string name="v7">Tåg</string>		
+	<string name="v8">Färja</string>
+	<string name="v9">U-linje</string>
+  
+</resources>

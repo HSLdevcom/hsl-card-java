@@ -1,0 +1,24 @@
+<resources>
+    
+   	<string name="z0">Not defined</string>
+	<string name="z1">Helsinki</string>
+	<string name="z2">Espoo</string>
+	<string name="z4">Vantaa</string>
+	<string name="z5">Region</string>
+	<string name="z6">Kirkkonummi</string>
+	<string name="z7">Vihti</string>
+	<string name="z8">Nurmijärvi</string>
+	<string name="z9">Kerava-Sipoo</string>
+	<string name="z10">Sipoo</string>
+	<string name="z14">Region two-zone</string>
+	<string name="z15">Region three-zone</string>
+
+	<string name="v0">Not defined</string>
+	<string name="v1">Buss</string>
+	<string name="v5">Tram</string>
+	<string name="v6">Metro</string>
+	<string name="v7">Train</string>		
+	<string name="v8">Ferry</string>
+	<string name="v9">U line</string>
+    	
+</resources>
