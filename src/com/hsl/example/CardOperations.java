@@ -526,8 +526,8 @@ public class CardOperations
 	public static String getTravelCardValue(TravelCard card)
 	{
 		//Calculate euros and cents out of value counter
-		String euros = String.valueOf (card.getValueCounter() / 100);
-		String cents = String.valueOf (card.getValueCounter() % 100);
+		int euros = card.getValueCounter() / 100;
+		int cents = card.getValueCounter() % 100;
 		
 		//Build string, cents with 2 digits and leading zeros. Add euro-character at the end. 
 		String value = String.format("%d.%02d \u20ac",euros,cents);
