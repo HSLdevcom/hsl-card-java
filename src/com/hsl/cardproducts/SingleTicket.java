@@ -1,7 +1,7 @@
 /*
  * SingleTicket.java
  *
- * Copyright (C) 2012 HSL/HRT (Helsingin seudun liikenne/ Helsinki Region Transport) 
+ * Copyright (C) 2018 HSL/HRT (Helsingin seudun liikenne/ Helsinki Region Transport)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,8 +13,9 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  */
+
 package com.hsl.cardproducts;
 
 import com.hsl.util.Convert;
@@ -25,18 +26,30 @@ import com.hsl.util.Convert;
  */
 public class SingleTicket 
 {
+	/** Byte array to store single ticket data. */
+	private byte[]	applicationInformationData = new byte[23];
+
+	/** Byte array to store eTicket (i.e. value ticket) data. */
+	private byte[]	eTicketData = new byte[41];
+
 	/** The application version. */
-	private byte 	applicationVersion;
-	
+	private int 	applicationVersion;
+
+	/** The application key version. */
+	private int 	applicationKeyVersion;
+
 	/** The application instance id (18 numbers). */
-	private String  applicationInstanceId; 
-	
+	private String  applicationInstanceId; //18 numbers
+
 	/** The platform type. */
-	private byte	platformType;
-	
+	private int	platformType;
+
+	/** Security level byte. */
+	private int	securityLevel;
+
 	/** The value ticket. */
 	private eTicket valueTicket;
-	
+
 	/**
 	 * Instantiates a new single ticket using the data given as parameters.
 	 * <p>
@@ -46,11 +59,19 @@ public class SingleTicket
 	 */
 	public SingleTicket(byte[] appInfoBytes, byte[] eTicketBytes)
 	{
+
+		//Copy raw data
+		System.arraycopy(appInfoBytes, 0, applicationInformationData, 0, applicationInformationData.length);
 		//Read data from application info
-		readApplicationInfo(appInfoBytes);
-		
-		//read value ticket 
-		valueTicket = new eTicket(eTicketBytes, true);	
+		readApplicationInfo(applicationInformationData);
+		//Copy raw data
+		System.arraycopy(eTicketBytes, 0, eTicketData, 0, eTicketData.length);
+		//read value ticket
+		// New read method for v2 single ticket
+		if (applicationVersion == 2)
+			valueTicket = new eTicket(eTicketData, true, 2, true);
+		else
+			valueTicket = new eTicket(eTicketData, true, 1, true);
 	}
 
 	/**
@@ -61,8 +82,9 @@ public class SingleTicket
 	private void readApplicationInfo(byte[] appInfo)
 	{
 		//Read data from application info
-		applicationVersion = (byte)(appInfo[16] & 0xF0);
-		
+		applicationVersion = Convert.getByteValue(appInfo, 128, 4);
+		applicationKeyVersion = Convert.getByteValue(appInfo, 132, 4);
+
 		byte[] temp = new byte[5];
 		System.arraycopy(appInfo, 17, temp, 0, 5);
 		applicationInstanceId = Convert.getHexString(temp);
@@ -71,8 +93,9 @@ public class SingleTicket
 		num = (num << 8) + ((appInfo[4] ^ appInfo[7]) & 0xFF);
 
 		applicationInstanceId = applicationInstanceId.concat(String.format("%07d", num)).concat(""+((appInfo[22] & 0xF0)>>>4));
-		
-		platformType = (byte)(appInfo[22] & 0x0E);
+
+		platformType = Convert.getByteValue(appInfo, 180, 3);
+		securityLevel = Convert.getByteValue(appInfo, 183, 1);
 	}
 
 	/**
@@ -80,8 +103,17 @@ public class SingleTicket
 	 *
 	 * @return the version of the ticket application
 	 */
-	public byte getApplicationVersion() {
+	public int getApplicationVersion() {
 		return applicationVersion;
+	}
+
+	/**
+	 * Gets the application key version.
+	 *
+	 * @return the application key version
+	 */
+	public int getApplicationKeyVersion() {
+		return applicationKeyVersion;
 	}
 
 	/**
@@ -98,8 +130,17 @@ public class SingleTicket
 	 *
 	 * @return the platform type
 	 */
-	public byte getPlatformType() {
+	public int getPlatformType() {
 		return platformType;
+	}
+
+	/**
+	 * Gets the security level.
+	 *
+	 * @return the security level
+	 */
+	public int getSecurityLevel() {
+		return securityLevel;
 	}
 
 	/**

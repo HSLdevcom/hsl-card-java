@@ -1,24 +1,26 @@
 <resources>
 
-   	<string name="z0">Inte definierat</string>
-	<string name="z1">Helsingfors</string>
-	<string name="z2">Esbo</string>
-	<string name="z4">Vanda</string>
-	<string name="z5">Region</string>
-	<string name="z6">Kyrkslätt</string>
-	<string name="z7">Vichtis</string>
-	<string name="z8">Nurmijärvi</string>
-	<string name="z9">Kervo-Sibbo</string>
-	<string name="z10">Sibbo</string>
-	<string name="z14">Närområdet</string>
-	<string name="z15">Hela området</string>
+    <string name="d1">Helsingfors</string>
+    <string name="d2">Esbo</string>
+    <string name="d4">Vanda</string>
+    <string name="d5">Region</string>
+    <string name="d6">Kyrkslätt-Sjundeå</string>
+    <string name="d7">Vichtis</string>
+    <string name="d8">Nurmijärvi</string>
+    <string name="d9">Kervo-Sibbo-Tusby</string>
+    <string name="d10">Sibbo</string>
+    <string name="d14">Närregion 2</string>
+    <string name="d15">Närregion 3</string>
 
-	<string name="v0">Inte definierat</string>
-	<string name="v1">Buss</string>
-	<string name="v5">Spårvagn</string>
-	<string name="v6">Metro</string>
-	<string name="v7">Tåg</string>		
-	<string name="v8">Färja</string>
-	<string name="v9">U-linje</string>
-  
+    <string name="v0">Inte definierat</string>
+    <string name="v1">Buss</string>
+    <string name="v2">Buss 2</string>
+    <string name="v3">Buss 3</string>
+    <string name="v4">Buss 4</string>
+    <string name="v5">Spårvagn</string>
+    <string name="v6">Metro</string>
+    <string name="v7">Tåg</string>
+    <string name="v8">Färja</string>
+    <string name="v9">U-linje</string>
+
 </resources>

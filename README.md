@@ -1,4 +1,3 @@
-## HSL travel card 
+# HSL card
 
-Note that currently this library is not usable with the new [HSL cards](https://www.hsl.fi/en/changecard)
-
+This Android library can be used for reading [new HSL cards](https://www.hsl.fi/en/changecard).
